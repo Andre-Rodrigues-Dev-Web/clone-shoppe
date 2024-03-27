@@ -1,0 +1,42 @@
+//Breakpoints
+$column-count: 4;
+$breakpoint: 48em;
+//Reset
+*{
+    box-sizing: border-box;
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    a, a:hover{
+        text-decoration: none;
+    }
+    li{ list-style-type: none;}
+    audio, img, iframe, video{
+        display: inline-block;
+        height: auto;
+        width: 100%;
+    }
+}
+
+//Grids
+.container{
+    margin: 0 auto;
+    width: 99%;
+    @media(width > 48em){
+        width: 98%;
+    }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (width > $breakpoint) {
+    @for $i from 1 through $column-count {
+      .col-#{$i} {
+        width: percentage(1 / $column-count * $i);
+      }
+    }
+  }
+}
